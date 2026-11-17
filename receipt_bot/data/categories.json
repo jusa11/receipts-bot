@@ -1,0 +1,157 @@
+{
+  "source_file": "category.xlsx",
+  "categories": [
+    {
+      "name": "молочные продукты",
+      "calculation_type": "шт"
+    },
+    {
+      "name": "мучные изделия",
+      "calculation_type": "шт"
+    },
+    {
+      "name": "Курица",
+      "calculation_type": "кг"
+    },
+    {
+      "name": "Туса",
+      "calculation_type": "шт"
+    },
+    {
+      "name": "Дошики",
+      "calculation_type": "шт"
+    },
+    {
+      "name": "Овощи",
+      "calculation_type": "кг"
+    },
+    {
+      "name": "яйца",
+      "calculation_type": "шт"
+    },
+    {
+      "name": "Сладкое шт",
+      "calculation_type": "шт"
+    },
+    {
+      "name": "Сладкое кг",
+      "calculation_type": "кг"
+    },
+    {
+      "name": "Кофе",
+      "calculation_type": "шт"
+    },
+    {
+      "name": "Мясо",
+      "calculation_type": "кг"
+    },
+    {
+      "name": "Консервы",
+      "calculation_type": "шт"
+    },
+    {
+      "name": "Фрукты",
+      "calculation_type": "кг"
+    },
+    {
+      "name": "Хоз товары",
+      "calculation_type": "шт"
+    },
+    {
+      "name": "Соусы",
+      "calculation_type": "шт"
+    },
+    {
+      "name": "Крупы/бакалея",
+      "calculation_type": "шт"
+    },
+    {
+      "name": "Рыба",
+      "calculation_type": "кг"
+    },
+    {
+      "name": "Масло подс",
+      "calculation_type": "шт"
+    },
+    {
+      "name": "Колбасы",
+      "calculation_type": "кг"
+    },
+    {
+      "name": "Другое кг",
+      "calculation_type": "кг"
+    },
+    {
+      "name": "Другое шт",
+      "calculation_type": "шт"
+    },
+    {
+      "name": "Рыба шт",
+      "calculation_type": "шт"
+    },
+    {
+      "name": "курица шт",
+      "calculation_type": "шт"
+    },
+    {
+      "name": "Овощи шт",
+      "calculation_type": "шт"
+    },
+    {
+      "name": "фрукты шт",
+      "calculation_type": "шт"
+    },
+    {
+      "name": "Сыры",
+      "calculation_type": "шт"
+    },
+    {
+      "name": "Творог",
+      "calculation_type": "шт"
+    },
+    {
+      "name": "Молоко",
+      "calculation_type": "шт"
+    },
+    {
+      "name": "Полуфабрикаты ",
+      "calculation_type": "кг"
+    },
+    {
+      "name": "Приправы",
+      "calculation_type": "шт"
+    },
+    {
+      "name": "Колбасы шт",
+      "calculation_type": "шт"
+    },
+    {
+      "name": "Хлебцы",
+      "calculation_type": "шт"
+    },
+    {
+      "name": "Сыры кг",
+      "calculation_type": "кг"
+    },
+    {
+      "name": "Туалетная бумага",
+      "calculation_type": "шт"
+    },
+    {
+      "name": "Влажный корм",
+      "calculation_type": "шт"
+    },
+    {
+      "name": "Масло сливочное",
+      "calculation_type": "шт"
+    },
+    {
+      "name": "Чай",
+      "calculation_type": "шт"
+    },
+    {
+      "name": "Хлеб",
+      "calculation_type": "шт"
+    }
+  ]
+}

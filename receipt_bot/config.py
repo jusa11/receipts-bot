@@ -27,7 +27,13 @@ class Settings:
     yandex_folder_id: str
     yandex_ocr_model: str
     yandex_ocr_languages: tuple[str, ...]
+    llm_api_key: str
+    llm_folder_id: str
+    llm_model: str
+    categories_path: Path
     data_dir: Path
+    google_sheets_spreadsheet_id: str | None
+    google_service_account_file: Path | None
     max_image_bytes: int
     http_timeout_seconds: int
 
@@ -59,6 +65,14 @@ def load_settings() -> Settings:
     if max_image_bytes <= 0 or timeout <= 0:
         raise ValueError("MAX_IMAGE_BYTES и HTTP_TIMEOUT_SECONDS должны быть больше нуля")
 
+    spreadsheet_id = os.getenv("GOOGLE_SHEETS_SPREADSHEET_ID", "").strip() or None
+    service_account_raw = os.getenv("GOOGLE_SERVICE_ACCOUNT_FILE", "").strip()
+    service_account_file = Path(service_account_raw).resolve() if service_account_raw else None
+    if bool(spreadsheet_id) != bool(service_account_file):
+        raise ValueError("Для Google Sheets заполните оба параметра: GOOGLE_SHEETS_SPREADSHEET_ID и GOOGLE_SERVICE_ACCOUNT_FILE")
+    if service_account_file is not None and not service_account_file.is_file():
+        raise ValueError(f"Не найден JSON-ключ сервисного аккаунта: {service_account_file}")
+
     return Settings(
         telegram_bot_token=token,
         allowed_telegram_user_ids=allowed_ids,
@@ -68,7 +82,21 @@ def load_settings() -> Settings:
         yandex_ocr_languages=tuple(
             part.strip() for part in os.getenv("YANDEX_OCR_LANGUAGES", "ru,en").split(",") if part.strip()
         ),
+        llm_api_key=(os.getenv("YANDEX_CLOUD_API_KEY", "") or api_key).strip(),
+        llm_folder_id=(os.getenv("YANDEX_CLOUD_FOLDER", "") or folder_id).strip(),
+        llm_model=_model_name(os.getenv("YANDEX_CLOUD_MODEL", "aliceai-llm")),
+        categories_path=Path(os.getenv("CATEGORIES_PATH", "./receipt_bot/data/categories.json")).resolve(),
         data_dir=Path(os.getenv("DATA_DIR", "./data")).resolve(),
+        google_sheets_spreadsheet_id=spreadsheet_id,
+        google_service_account_file=service_account_file,
         max_image_bytes=max_image_bytes,
         http_timeout_seconds=timeout,
     )
+
+
+def _model_name(value: str) -> str:
+    model = value.strip().strip('"').strip("'") or "aliceai-llm"
+    # The current catalog publishes this model with the explicit URI below.
+    if model == "yandexgpt-5-pro/latest":
+        return "yandexgpt-5-pro"
+    return model
